@@ -1,10 +1,10 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, StatusBar } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts } from 'expo-font';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from "expo-router";
 import { Feather } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from "expo-router";
+import React from "react";
+import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen(): JSX.Element {
   const router = useRouter();
@@ -39,12 +39,12 @@ export default function HomeScreen(): JSX.Element {
           />
         </View>
 
-        {/* --- THREE ACTION BUTTONS --- */}
+        {/* --- THREE MAIN ACTIONS --- */}
         <View style={styles.actionArea}>
-          {/* Button to Start a New Order */}
+          {/* Orders landing */}
           <TouchableOpacity
             style={styles.buttonShadow}
-            onPress={() => router.push('/details')}
+            onPress={() => router.push('/orders')}
             activeOpacity={0.8}
           >
             <LinearGradient
@@ -53,42 +53,42 @@ export default function HomeScreen(): JSX.Element {
               end={{ x: 1, y: 1 }}
               style={styles.button}
             >
-              <Feather name="plus-circle" size={22} color="#fff" />
-              <Text style={styles.buttonText}>New Order</Text>
-            </LinearGradient>
-          </TouchableOpacity>
-          
-          {/* Button to View Orders */}
-          <TouchableOpacity
-            style={[styles.buttonShadow, { shadowColor: '#343a40', marginTop: 20 }]}
-            onPress={() => router.push('/viewOrders')}
-            activeOpacity={0.8}
-          >
-            <LinearGradient
-              colors={['#6c757d', '#343a40']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.button}
-            >
-              <Feather name="list" size={22} color="#fff" />
-              <Text style={styles.buttonText}>View Orders</Text>
+              <Feather name="copy" size={22} color="#fff" />
+              <Text style={styles.buttonText}>Orders</Text>
             </LinearGradient>
           </TouchableOpacity>
 
-          {/* --- Button to Edit an Item --- */}
+          {/* Employees */}
           <TouchableOpacity
-            style={[styles.buttonShadow, { shadowColor: '#ffc107', marginTop: 20 }]}
-            onPress={() => router.push('/editSelection')}
+            style={[styles.buttonShadow, { shadowColor: '#20c997', marginTop: 20 }]}
+            onPress={() => router.push('/employee')}
             activeOpacity={0.8}
           >
             <LinearGradient
-              colors={['#ffc107', '#ff8f07']}
+              colors={['#20c997', '#2ab27b']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={styles.button}
             >
-              <Feather name="edit" size={22} color="#fff" />
-              <Text style={styles.buttonText}>Edit Item</Text>
+              <Feather name="users" size={22} color="#fff" />
+              <Text style={styles.buttonText}>Employees</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+
+          {/* Expenditures */}
+          <TouchableOpacity
+            style={[styles.buttonShadow, { shadowColor: '#8e44ad', marginTop: 20 }]}
+            onPress={() => router.push('/expenditures')}
+            activeOpacity={0.8}
+          >
+            <LinearGradient
+              colors={['#8e44ad', '#6a82fb']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.button}
+            >
+              <Feather name="credit-card" size={22} color="#fff" />
+              <Text style={styles.buttonText}>Expenditures</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
