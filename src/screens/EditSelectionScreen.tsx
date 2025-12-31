@@ -24,6 +24,13 @@ export default function EditSelectionScreen(): JSX.Element {
         <StatusBar barStyle="dark-content" />
         <View style={styles.container}>
           
+          <View style={styles.navBar}>
+            <TouchableOpacity style={styles.navButton} onPress={() => router.back()}>
+              <Feather name="arrow-left" size={24} color="#485162" />
+              <Text style={styles.navText}>Back</Text>
+            </TouchableOpacity>
+          </View>
+          
           <View style={styles.mainContent}>
             <View style={styles.header}>
               <Text style={styles.title}>Edit Items</Text>
@@ -57,12 +64,6 @@ export default function EditSelectionScreen(): JSX.Element {
             </View>
           </View>
 
-          <View style={styles.navBar}>
-            <TouchableOpacity style={styles.navButton} onPress={() => router.back()}>
-              <Feather name="arrow-left" size={24} color="#485162" />
-              <Text style={styles.navText}>Back</Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </SafeAreaView>
     </LinearGradient>

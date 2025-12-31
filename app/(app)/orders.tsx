@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts } from 'expo-font';
 import { Feather } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import React from 'react';
+import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function OrdersScreen(): JSX.Element {
   const router = useRouter();
@@ -20,8 +20,11 @@ export default function OrdersScreen(): JSX.Element {
     <LinearGradient colors={['#a5c4ff', '#fcb69f']} style={styles.gradientBackground}>
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
-        <View style={styles.header}>
-          <Text style={styles.title}>Orders</Text>
+        <View style={styles.headerContainer}>
+          <View style={{flexDirection:'row', alignItems:'center', gap:12}}>
+            <TouchableOpacity onPress={() => router.push('/')} style={{padding:8}}><Feather name="arrow-left" size={20} color="#1a253a" /></TouchableOpacity>
+            <Text style={styles.title}>Orders</Text>
+          </View>
           <Text style={styles.subtitle}>Manage orders</Text>
         </View>
 

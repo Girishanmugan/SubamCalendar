@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, StatusBar, KeyboardAvoidingView, Platform } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useFonts } from 'expo-font';
-import { useRouter } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, Platform, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useOrder } from '../context/OrderContext'; // 1. Import the hook
 
 export default function CustomerDetailsScreen(): JSX.Element {
@@ -60,6 +60,18 @@ export default function CustomerDetailsScreen(): JSX.Element {
         >
           <View style={styles.container}>
             <View>
+
+              <View style={styles.navBar}>
+              <TouchableOpacity style={styles.navButton} onPress={() => router.back()}>
+                <Feather name="arrow-left" size={24} color="#485162" />
+                <Text style={styles.navText}>Back</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.navButton} onPress={handleNextPress}>
+                <Text style={styles.navText}>Next</Text>
+                <Feather name="arrow-right" size={24} color="#485162" />
+              </TouchableOpacity>
+            </View>
+            
               <Text style={styles.title}>Customer Details</Text>
               <Text style={styles.tagline}>Please fill in your information below</Text>
               
@@ -114,16 +126,6 @@ export default function CustomerDetailsScreen(): JSX.Element {
               </View>
             </View>
 
-            <View style={styles.navBar}>
-              <TouchableOpacity style={styles.navButton} onPress={() => router.back()}>
-                <Feather name="arrow-left" size={24} color="#485162" />
-                <Text style={styles.navText}>Back</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.navButton} onPress={handleNextPress}>
-                <Text style={styles.navText}>Next</Text>
-                <Feather name="arrow-right" size={24} color="#485162" />
-              </TouchableOpacity>
-            </View>
           </View>
         </KeyboardAvoidingView>
       </SafeAreaView>
